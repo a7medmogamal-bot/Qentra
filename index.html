@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="QENTRA AI - حول درسك إلى 10 أسئلة ذكية">
+    <title>QENTRA AI - مولد الأسئلة</title>
+    <link rel="icon" type="image/png" href="https://i.ibb.co/VYvYcKGj/file-00000000dac881f48b765e030a2b4313.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="landing-overlay" id="landingOverlay">
+        <div class="landing-container">
+            <div class="landing-logo">
+                <img src="https://i.ibb.co/VYvYcKGj/file-00000000dac881f48b765e030a2b4313.png" alt="QENTRA AI">
+            </div>
+            <h1 class="landing-title">QENTRA AI</h1>
+            <p class="landing-subtitle" data-ar="حول درسك إلى 10 أسئلة ذكية" data-en="Turn your lesson into 10 smart questions">حول درسك إلى 10 أسئلة ذكية</p>
+            <p class="landing-description" data-ar="ارفع صورة من درسك أو مقالك أو مادة دراستك. سيولد QENTRA AI عشرة أسئلة مرتبة من السهل إلى الصعب." data-en="Upload an image of your lesson, article, or study material. QENTRA AI will generate 10 questions ordered from easy to hard.">ارفع صورة من درسك أو مقالك أو مادة دراستك. سيولد QENTRA AI عشرة أسئلة مرتبة من السهل إلى الصعب.</p>
+            <div class="landing-features">
+                <div class="landing-feature">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" stroke-width="2"/><polyline points="17 8 12 3 7 8" stroke="currentColor" stroke-width="2"/><line x1="12" y1="3" x2="12" y2="15" stroke="currentColor" stroke-width="2"/></svg>
+                    <span data-ar="ارفع مادتك" data-en="Upload your material">ارفع مادتك</span>
+                </div>
+                <div class="landing-feature">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2"/></svg>
+                    <span data-ar="احصل على 10 أسئلة ذكية" data-en="Get 10 smart questions">احصل على 10 أسئلة ذكية</span>
+                </div>
+                <div class="landing-feature">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2"/><path d="M2 17l10 5 10-5" stroke="currentColor" stroke-width="2"/><path d="M2 12l10 5 10-5" stroke="currentColor" stroke-width="2"/></svg>
+                    <span data-ar="ذاكر بذكاء" data-en="Study smarter">ذاكر بذكاء</span>
+                </div>
+            </div>
+            <button class="landing-btn" id="landingBtn" data-ar="ابدأ الآن" data-en="Get Started">ابدأ الآن</button>
+        </div>
+    </div>
+
+    <div class="app-container" id="appContainer" style="display: none;">
+        
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="https://i.ibb.co/VYvYcKGj/file-00000000dac881f48b765e030a2b4313.png" alt="QENTRA AI" class="logo-icon">
+                    <span class="logo-text">QENTRA AI</span>
+                </div>
+            </div>
+
+            <button class="new-chat-btn" id="newChatBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2"/><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2"/></svg>
+                <span data-ar="محادثة جديدة" data-en="New Chat">محادثة جديدة</span>
+            </button>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-title" data-ar="السجل" data-en="History">السجل</h3>
+                <div class="chat-list" id="chatList"></div>
+            </div>
+
+            <div class="sidebar-footer">
+                <button class="plans-btn" id="plansBtn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2"/><path d="M2 17l10 5 10-5" stroke="currentColor" stroke-width="2"/><path d="M2 12l10 5 10-5" stroke="currentColor" stroke-width="2"/></svg>
+                    <span data-ar="الباقات" data-en="Plans">الباقات</span>
+                </button>
+                <button class="settings-btn" id="settingsBtn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="currentColor" stroke-width="2"/></svg>
+                    <span data-ar="الإعدادات" data-en="Settings">الإعدادات</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2"/><line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2"/><line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2"/></svg>
+                </button>
+                <h1 class="page-title" data-ar="مولد الأسئلة" data-en="Questions Generator">مولد الأسئلة</h1>
+            </header>
+
+            <div class="view" id="homeView">
+                <div class="hero-section">
+                    <h2 class="hero-title" data-ar="حول درسك إلى 10 أسئلة ذكية" data-en="Turn your lesson into 10 smart questions">حول درسك إلى 10 أسئلة ذكية</h2>
+                    <p class="hero-subtitle" data-ar="ارفع صورة من درسك أو مقالك أو مادة دراستك." data-en="Upload an image of your lesson, article, or study material.">ارفع صورة من درسك أو مقالك أو مادة دراستك.</p>
+                </div>
+
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <svg class="upload-icon" width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" stroke-width="2"/><polyline points="17 8 12 3 7 8" stroke="currentColor" stroke-width="2"/><line x1="12" y1="3" x2="12" y2="15" stroke="currentColor" stroke-width="2"/></svg>
+                        <p class="upload-text" data-ar="اسحب وأفلت صورتك هنا" data-en="Drag and drop your image here">اسحب وأفلت صورتك هنا</p>
+                        <p class="upload-or" data-ar="أو" data-en="or">أو</p>
+                        <button class="browse-btn" id="browseBtn" data-ar="تصفح الملفات" data-en="Browse Files">تصفح الملفات</button>
+                        <p class="upload-hint" data-ar="يدعم: JPG و PNG و WEBP (بحد أقصى 5 ميجابايت)" data-en="Supports: JPG, PNG, WEBP (Max 5MB)">يدعم: JPG و PNG و WEBP (بحد أقصى 5 ميجابايت)</p>
+                        <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" hidden>
+                    </div>
+                </div>
+
+                <div class="image-preview" id="imagePreview" style="display: none;">
+                    <img id="previewImg" src="" alt="Uploaded material">
+                    <div class="preview-info">
+                        <span id="fileName"></span>
+                        <span id="fileSize"></span>
+                    </div>
+                    <div class="preview-actions">
+                        <button class="remove-btn" id="removeBtn" data-ar="إزالة" data-en="Remove">إزالة</button>
+                        <button class="generate-btn" id="generateBtn" data-ar="توليد الأسئلة" data-en="Generate Questions">توليد الأسئلة</button>
+                    </div>
+                </div>
+
+                <div class="loading-state" id="loadingState" style="display: none;">
+                    <div class="skeleton-container">
+                        <div class="skeleton skeleton-title"></div>
+                        <div class="skeleton skeleton-text"></div>
+                        <div class="skeleton skeleton-text short"></div>
+                        <div class="skeleton skeleton-upload"></div>
+                        <div class="loading-status">
+                            <p class="loading-text" id="loadingText" data-ar="جاري تحليل المادة..." data-en="Analyzing your material...">جاري تحليل المادة...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="error-message" id="errorMessage" style="display: none;"></div>
+
+                <div class="questions-section" id="questionsSection" style="display: none;">
+                    <div class="questions-header">
+                        <h3 data-ar="أسئلتك" data-en="Your Questions">أسئلتك</h3>
+                        <span class="questions-count">10</span>
+                        <span class="difficulty-order" data-ar="من السهل إلى الصعب" data-en="Easy to Hard">من السهل إلى الصعب</span>
+                    </div>
+                    <div class="questions-list" id="questionsList"></div>
+                    <div class="answers-section">
+                        <button class="show-answers-btn" id="showAnswersBtn" data-ar="عرض الإجابات" data-en="Show Answers">عرض الإجابات</button>
+                        <div class="answers-list" id="answersList" style="display: none;"></div>
+                    </div>
+                    <button class="new-questions-btn" id="newQuestionsBtn" data-ar="أسئلة جديدة" data-en="New Questions">أسئلة جديدة</button>
+                </div>
+
+                <div class="chat-section" id="chatSection" style="display: none;">
+                    <div class="chat-header">
+                        <h3 data-ar="تحدث مع QENTRA" data-en="Chat with QENTRA">تحدث مع QENTRA</h3>
+                    </div>
+                    <div class="chat-messages" id="chatMessages"></div>
+                    <div class="typing-indicator" id="typingIndicator" style="display: none;"><span></span><span></span><span></span></div>
+                    <div class="chat-input-area">
+                        <input type="text" id="chatInput" placeholder="اسأل عن الأسئلة...">
+                        <button class="send-btn" id="sendChatBtn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><line x1="22" y1="2" x2="11" y2="13" stroke="currentColor" stroke-width="2"/><polygon points="22 2 15 22 11 13 2 9 22 2" stroke="currentColor" stroke-width="2"/></svg></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view" id="plansView" style="display: none;">
+                <div class="plans-container">
+                    <h2 class="plans-title" data-ar="اختر باقتك" data-en="Choose Your Plan">اختر باقتك</h2>
+                    <div class="pricing-grid">
+                        <div class="plan-card active">
+                            <h3 class="plan-name" data-ar="مجاني" data-en="Free">مجاني</h3>
+                            <p class="plan-price">$0</p>
+                            <ul class="plan-features">
+                                <li data-ar="صورة واحدة يومياً" data-en="1 image per day">صورة واحدة يومياً</li>
+                                <li data-ar="10 أسئلة لكل صورة" data-en="10 questions per image">10 أسئلة لكل صورة</li>
+                                <li data-ar="3 فرص لكل محاولة" data-en="3 chances per attempt">3 فرص لكل محاولة</li>
+                                <li data-ar="10 رسائل يومياً" data-en="10 messages per day">10 رسائل يومياً</li>
+                            </ul>
+                            <button class="plan-btn current" disabled data-ar="باقتك الحالية" data-en="Current Plan">باقتك الحالية</button>
+                        </div>
+                        <div class="plan-card disabled">
+                            <span class="badge" data-ar="قريباً" data-en="Coming Soon">قريباً</span>
+                            <h3 class="plan-name" data-ar="أساسي" data-en="Basic">أساسي</h3>
+                            <p class="plan-price">$4.99/mo</p>
+                            <ul class="plan-features">
+                                <li data-ar="10 صور يومياً" data-en="10 images per day">10 صور يومياً</li>
+                                <li data-ar="15 سؤال لكل صورة" data-en="15 questions per image">15 سؤال لكل صورة</li>
+                                <li data-ar="10 فرص لكل محاولة" data-en="10 chances per attempt">10 فرص لكل محاولة</li>
+                                <li data-ar="50 رسالة يومياً" data-en="50 messages per day">50 رسالة يومياً</li>
+                            </ul>
+                            <button class="plan-btn soon" disabled data-ar="قريباً" data-en="Coming Soon">قريباً</button>
+                        </div>
+                        <div class="plan-card disabled">
+                            <span class="badge" data-ar="قريباً" data-en="Coming Soon">قريباً</span>
+                            <h3 class="plan-name" data-ar="احترافي" data-en="Pro">احترافي</h3>
+                            <p class="plan-price">$9.99/mo</p>
+                            <ul class="plan-features">
+                                <li data-ar="50 صورة يومياً" data-en="50 images per day">50 صورة يومياً</li>
+                                <li data-ar="20 سؤال لكل صورة" data-en="20 questions per image">20 سؤال لكل صورة</li>
+                                <li data-ar="20 فرصة لكل محاولة" data-en="20 chances per attempt">20 فرصة لكل محاولة</li>
+                                <li data-ar="200 رسالة يومياً" data-en="200 messages per day">200 رسالة يومياً</li>
+                            </ul>
+                            <button class="plan-btn soon" disabled data-ar="قريباً" data-en="Coming Soon">قريباً</button>
+                        </div>
+                    </div>
+                    <button class="back-btn" id="plansBackBtn" data-ar="العودة للرئيسية" data-en="Back to Home">العودة للرئيسية</button>
+                </div>
+            </div>
+
+            <div class="view" id="settingsView" style="display: none;">
+                <div class="settings-container">
+                    <h2 class="settings-title" data-ar="الإعدادات" data-en="Settings">الإعدادات</h2>
+                    <div class="setting-group">
+                        <label class="setting-label" data-ar="المظهر" data-en="Theme">المظهر</label>
+                        <div class="theme-options">
+                            <button class="theme-btn active" data-theme="light" id="lightThemeBtn" data-ar="فاتح" data-en="Light">فاتح</button>
+                            <button class="theme-btn" data-theme="dark" id="darkThemeBtn" data-ar="داكن" data-en="Dark">داكن</button>
+                        </div>
+                    </div>
+                    <div class="setting-group">
+                        <label class="setting-label" data-ar="اللغة" data-en="Language">اللغة</label>
+                        <div class="language-options">
+                            <button class="lang-btn active" data-lang="ar" id="arLangBtn">العربية</button>
+                            <button class="lang-btn" data-lang="en" id="enLangBtn">English</button>
+                        </div>
+                    </div>
+                    <button class="back-btn" id="backBtn" data-ar="العودة للرئيسية" data-en="Back to Home">العودة للرئيسية</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
