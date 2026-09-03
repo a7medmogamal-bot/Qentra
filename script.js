@@ -1,6 +1,6 @@
 // ============ Configuration ============
-const GEMINI_API_KEY = 'AIzaSyDvZKxAB4BT3iQmAc721NSu-y9sw16xACo';
-const GEMINI_MODEL = 'gemini-1.5-flash';
+const GEMINI_API_KEY = 'AQ.Ab8RN6Kb7NLi8m3PndUzYzRH9nXIlHpBkcEhqz7tztlThqP1Fg';
+const GEMINI_MODEL = 'gemini-3.6-flash';
 
 // ============ Translations ============
 const translations = {
