@@ -4,7 +4,7 @@
 
 // ===== Configuration =====
 const GEMINI_CONFIG = {
-    model: 'gemini-3.6-flash',
+    model: 'gemini-3-flash-preview',
     apiVersion: 'v1beta',
     baseUrl: 'https://generativelanguage.googleapis.com',
     maxRetries: 2,
